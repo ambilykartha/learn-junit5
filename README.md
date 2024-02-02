@@ -103,7 +103,7 @@ Assumptions
 		- Test level cleanup - after every method
 			§ @AfterEach
 		- Class level cleanup - once per test class
-@AfterAll - should be a static method
+			@AfterAll - should be a static method
 
 
 
