@@ -1,3 +1,5 @@
+﻿INTRODUCTION
+
 What is Unit Testing?
 	
 	A method in which we write code to test a unit of a program.  A unit can be a method, or a class or multiple classes.
@@ -104,6 +106,43 @@ Assumptions
 			§ @AfterEach
 		- Class level cleanup - once per test class
 			@AfterAll - should be a static method
+
+Conditional execution of tests
+
+- Allows to execute test cases based on OS, JRE, System Property , environment variable or custom conditions
+- @EnabledOnOs - @EnabledOnOs({OS.LINUX, OS.MAC})
+- @DisabledOnOs
+- @EnabledOnJre - @EnabledOnJre(JRE.JAVA_17)
+- @DisabledOnJre
+- @EnabledForJreRange -  @EnabledForJreRange(min = JRE.JAVA_8, max = JRE.JAVA_17)
+- @DisabledForJreRange
+- @EnabledIfSystemProperty - @EnabledIfSystemProperty( named= "os.arch", matches = ".*64.*")
+- @DisabledIfSystemProperty
+- @EnabledIfEnvironmentVariable - @EnabledIfEnvironmentVariable(named = "ENV", matches = "staging-server")
+- @DisabledIfEnvironmentVariable
+- Custom conditions
+- @DisabledIf("customCondition")
+- @EnabledIf("customCondition")
+
+Parameterized Tests
+
+- Allows to run a test for different inputs
+- Annotated with @ParameterizedTest instead of @Test
+- Need to add dependency as below
+       <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.7.2</version>
+            <scope>test</scope>
+        </dependency>
+- @ValueSource specifies the input source
+- @EnumSource helps to give an enum as input to the test
+- @MethodSource allows return values of a method to be passed as parameter to a test
+- @CsvSource allows inputs to be comma separated values
+
+Disabled Tests
+
+	 Test can be disabled using @Disabled annotation
 
 
 
